@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>给特别的你</title>
+  <meta name="description" content="一份温柔浪漫的生日礼物页，献给今天最重要的人。">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <canvas class="particle-canvas" id="particleCanvas" aria-hidden="true"></canvas>
+
+    <header class="hero" id="top">
+      <nav class="topbar">
+        <span class="topbar__badge">Birthday Letter</span>
+        <button class="ghost-button" type="button" data-scroll-target="#gallery">看看全部回忆</button>
+      </nav>
+
+      <div class="hero__content">
+        <p class="eyebrow">To my special person</p>
+        <h1 class="hero__title" id="heroTitle">生日快乐，我的特别的人</h1>
+        <p class="hero__subtitle" id="heroSubtitle">今天的晚风、灯光和所有心动，都是为了把这一句“你很重要”认真送给你。</p>
+
+        <div class="hero__actions">
+          <button class="primary-button" id="enterButton" type="button">开始这份小礼物</button>
+          <button class="music-button" id="musicToggle" type="button" aria-pressed="false">播放《特别的人》</button>
+        </div>
+
+        <div class="music-tip" id="musicTip" role="status" aria-live="polite">
+          页面会尝试自动播放音乐，如果浏览器拦截了，点一下按钮就好。
+        </div>
+      </div>
+
+      <div class="hero-card reveal is-visible">
+        <p class="hero-card__label">今天想送给你的</p>
+        <p class="hero-card__headline" id="heroCardHeadline">不是一句匆忙的“生日快乐”，而是一整页认认真真的偏爱。</p>
+        <p class="hero-card__text">从这一页开始，今天的每一张照片、每一个片段，都会替我继续说喜欢你。</p>
+
+        <div class="hero-card__stats">
+          <div class="stat-pill">
+            <span class="stat-pill__number" id="photoCount">17</span>
+            <span class="stat-pill__label">张照片</span>
+          </div>
+          <div class="stat-pill">
+            <span class="stat-pill__number" id="videoCount">3</span>
+            <span class="stat-pill__label">个视频</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="section section--story" id="story">
+        <div class="section-heading">
+          <p class="section-heading__eyebrow">A little confession</p>
+          <h2 class="section-heading__title">今天，我想慢慢把喜欢说给你听</h2>
+        </div>
+        <div class="story-grid" id="storyGrid"></div>
+      </section>
+
+      <section class="section section--gallery" id="gallery">
+        <div class="section-heading">
+          <p class="section-heading__eyebrow">All our moments</p>
+          <h2 class="section-heading__title">全部回忆，都想放给你看</h2>
+        </div>
+        <div class="gallery-grid" id="galleryGrid"></div>
+      </section>
+
+      <section class="section section--video" id="videoSection">
+        <div class="section-heading">
+          <p class="section-heading__eyebrow">More than photos</p>
+          <h2 class="section-heading__title">这几段视频，也想陪你再看一遍</h2>
+        </div>
+        <div class="video-grid" id="videoGrid"></div>
+      </section>
+
+      <section class="section section--final reveal" id="finalSection">
+        <div class="section-heading">
+          <p class="section-heading__eyebrow">Happy birthday</p>
+          <h2 class="section-heading__title" id="finalTitle">愿你一直被爱，也一直自由闪亮</h2>
+        </div>
+        <p class="final-message" id="finalMessage">谢谢你来到我的生活里。今天是你的生日，但偏爱、认真和心动，我想不止今天都给你。</p>
+        <button class="primary-button" id="confettiButton" type="button">点一下，收下今天的心动</button>
+      </section>
+    </main>
+  </div>
+
+  <audio id="bgm" preload="auto" loop></audio>
+
+  <template id="storyCardTemplate">
+    <article class="story-card reveal">
+      <p class="story-card__index"></p>
+      <h3 class="story-card__title"></h3>
+      <p class="story-card__text"></p>
+    </article>
+  </template>
+
+  <template id="galleryCardTemplate">
+    <article class="gallery-card reveal">
+      <div class="gallery-card__media"></div>
+      <div class="gallery-card__body">
+        <h3 class="gallery-card__title"></h3>
+        <p class="gallery-card__text"></p>
+      </div>
+    </article>
+  </template>
+
+  <template id="videoCardTemplate">
+    <article class="video-card reveal">
+      <div class="video-card__frame"></div>
+      <div class="video-card__copy">
+        <h3 class="video-card__title"></h3>
+        <p class="video-card__text"></p>
+      </div>
+    </article>
+  </template>
+
+  <script src="./script.js"></script>
+</body>
+</html>
